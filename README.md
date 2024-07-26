@@ -19,6 +19,8 @@
 
 ## Introduction
 In 2023, the Kenyan government enacted the Social Health Insurance Act, aiming to achieve Universal Health Coverage (UHC). This initiative strives to ensure that all citizens have access to quality healthcare services without incurring catastrophic health expenses. However, predicting the appropriate contributions for informal sector workers remains a challenge due to their variable incomes. Developing an accurate income prediction model can enhance the SHIF program by ensuring fair contributions, identifying low-income households for targeted social programs, and supporting the most vulnerable.
+![Kenya-xs](https://github.com/user-attachments/assets/fec89a87-d9bf-4781-ba55-5c4867674455)
+
 
 ## Business Understanding
 The primary goal of this project is to develop a model that predicts the contributions of informal sector workers to the Social Health Insurance Fund (SHIF). This involves analyzing household demographics, location, income group, and type of work to understand their impact on income predictions.
