@@ -54,6 +54,7 @@ Data preparation involves handling missing values, normalizing features, and enc
 
 ![alt text](income_groups_distribution-1.png)
 
+
 The bar chart illustrates the frequency distribution of income groups based on how much individuals were paid in the last month. The income groups are divided into ranges: 0-10k, 10k-20k, 20k-30k, 30k-40k, and 40k-50k. The chart reveals that the 0-10k and 10k-20k income groups have the highest frequencies, indicating a large portion of the population falls within these lower income brackets. This distribution suggests a concentration of individuals in the lower income ranges.
 
 - **Region Distribution**:
