@@ -1,1 +1,151 @@
-# Predicitiong-Contributions-of-Informal-Workers-to-the-SHIF
+
+# Predicting Social Health Insurance Fund Contributions from Kenya’s Informal Sector Workers
+
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Business Understanding](#business-understanding)
+3. [Data Understanding](#data-understanding)
+4. [Problem Statement](#problem-statement)
+5. [Objectives](#objectives)
+6. [Metric of Success](#metric-of-success)
+7. [Data Preparation and Cleaning](#data-preparation-and-cleaning)
+8. [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
+9. [Statistical Analysis](#statistical-analysis)
+10. [Data Preprocessing](#data-preprocessing)
+11. [Modeling](#modeling)
+12. [Evaluation](#evaluation)
+13. [Conclusions](#conclusions)
+14. [Recommendations](#recommendations)
+15. [Next Steps](#next-steps)
+
+## Introduction
+In 2023, the Kenyan government enacted the Social Health Insurance Act, aiming to achieve Universal Health Coverage (UHC). This initiative strives to ensure that all citizens have access to quality healthcare services without incurring catastrophic health expenses. However, predicting the appropriate contributions for informal sector workers remains a challenge due to their variable incomes. Developing an accurate income prediction model can enhance the SHIF program by ensuring fair contributions, identifying low-income households for targeted social programs, and supporting the most vulnerable.
+
+## Business Understanding
+The primary goal of this project is to develop a model that predicts the contributions of informal sector workers to the Social Health Insurance Fund (SHIF). This involves analyzing household demographics, location, income group, and type of work to understand their impact on income predictions.
+
+## Data Understanding
+The dataset includes features such as household demographics, location, income groups, and types of work. Initial data exploration involves understanding the structure, identifying missing values, and performing preliminary cleaning.
+
+## Problem Statement
+How can we accurately predict the SHIF contributions of informal sector workers to ensure fair and equitable contribution amounts?
+
+## Objectives
+### Main Objective
+- Develop a model to predict the contribution of informal sector workers to the Social Health Insurance Fund based on household demographics, location, income group, and type of work.
+
+### Specific Objectives
+1. Conduct Exploratory Data Analysis (EDA) to understand the distribution and relationships of various features and identify patterns associated with income.
+2. Create an easy-to-use chatbot that allows informal sector workers to determine their required contributions to the SHIF based on the prediction model.
+3. Utilize insights from the model to inform and support policy decisions, ensuring that SHIF contributions are fair and equitable for all informal sector workers.
+
+## Metric of Success
+- Accuracy and F1 Score metrics will be used to evaluate the balance between precision and recall in classifying low-income households within the informal sector, ensuring targeted social programs are appropriately directed.
+
+## Data Preparation and Cleaning
+Data preparation involves handling missing values, normalizing features, and encoding categorical variables to ensure the dataset is suitable for model training. Key steps include:
+- Dropping irrelevant columns.
+- Imputing missing values.
+- Encoding categorical variables.
+
+## Exploratory Data Analysis (EDA)
+### Key Insights
+- **Income Distribution**: 
+
+![alt text](income_groups_distribution-1.png)
+
+The bar chart illustrates the frequency distribution of income groups based on how much individuals were paid in the last month. The income groups are divided into ranges: 0-10k, 10k-20k, 20k-30k, 30k-40k, and 40k-50k. The chart reveals that the 0-10k and 10k-20k income groups have the highest frequencies, indicating a large portion of the population falls within these lower income brackets. This distribution suggests a concentration of individuals in the lower income ranges.
+
+- **Region Distribution**:
+
+![alt text](region_distribution-1.png)
+
+The bar chart depicts the distribution of regions where individuals in Kenya are working in the informal sector. Kisumu has the highest frequency of individuals, followed by West Pokot, Kericho, and Tana River. This visualization highlights the diverse geographic spread of informal sector employment in Kenya.
+
+- **Literacy Levels**:
+
+![alt text](literacy_distribution-1.png)
+
+The bar chart illustrates the distribution of literacy levels among individuals. The "able to read whole sentence" category has the highest frequency, suggesting a relatively high level of literacy among the population.
+
+- **Occupation Distribution**:
+
+![alt text](occupation_grouped_distribution-1.png)
+
+The bar chart shows the distribution of various grouped occupations. 'Agriculture - employee' and 'skilled manual' categories have the highest frequencies, indicating a significant portion of the population is employed in agricultural work and skilled manual labor.
+
+- **Literacy vs Income**:
+
+![alt text](literacy_vs_income_group-1.png)
+
+The bar chart shows that higher literacy (ability to read whole sentences) is more prevalent among individuals with lower to mid-range incomes, while lower literacy is more common in the lowest income groups.
+
+- **Education vs Income**:
+
+![alt text](respondent_education_vs_income_group-1.png)
+
+The bar chart illustrates the relationship between respondent education levels and income groups. Higher education is associated with higher income groups, while lower education is more common in lower income groups.
+
+## Statistical Analysis
+Statistical methods, such as the Kruskal-Wallis test, are employed to analyze the relationships between different variables and their impact on income predictions. Results indicate significant income differences across various demographic and socio-economic factors, highlighting the multifaceted nature of income determinants.
+
+## Data Preprocessing
+Data preprocessing includes scaling features, encoding categorical variables, and splitting the dataset into training and testing sets. This ensures that the models are trained on clean and normalized data, enhancing their predictive performance.
+
+## Modeling
+### Models Used
+1. Naive Bayes
+2. Logistic Regression
+3. Decision Tree
+4. Support Vector Machine
+5. Random Forest
+6. Gradient Boosting
+7. K-Nearest Neighbors
+8. Deep Learning
+
+## Evaluation: Best Model (K-Nearest Neighbors)
+Models are evaluated using metrics such as accuracy, precision, recall, and F1 score. ROC curves and confusion matrices provide a visual representation of model performance.
+
+![alt text](image.png)
+
+The confusion matrix and classification report for the K-Nearest Neighbors (KNN) model show outstanding performance. The model achieved perfect classification across all classes, resulting in an overall accuracy of 1.00 (100%).
+
+## Findings
+- **Income Determinants**: Significant income differences were found across various demographic and socio-economic factors, such as age, region, educational attainment, literacy, and household characteristics.
+- **Model Performance**: The KNN model demonstrated perfect classification, with an accuracy of 1.00. Other classifiers also achieved high performance, indicating their effectiveness in predicting income groups.
+- **Literacy and Income Group**: Higher literacy is associated with higher income groups, while lower literacy is more common in the lowest income groups.
+- **Occupation and Income Group**: The majority of individuals in the informal sector are engaged in agricultural work and skilled manual labor.
+
+## Recommendations
+1. **Targeted Educational Programs**: Implement programs to improve literacy and vocational skills among informal sector workers.
+2. **Tailored Social Programs**: Develop social programs targeting vulnerable groups identified in the study.
+3. **Policy Development**: Use data insights to inform policy decisions addressing the unique needs of informal sector workers.
+4. **Enhanced Data Collection**: Improve data collection processes to capture comprehensive information on informal sector workers.
+
+## Limitations
+1. **Model Generalizability**: Further validation is needed to ensure the models' applicability to other contexts or datasets.
+2. **Unaccounted Variables**: Certain socio-economic factors that could influence income levels may not have been captured.
+3. **Static Analysis**: Continuous updates and validations of the model are necessary to maintain accuracy.
+4. **Data Quality and Completeness**: The study relied on available data, which might have gaps or inaccuracies.
+
+## Conclusions
+The study successfully developed a robust model to predict the contributions of informal sector workers to the Social Health Insurance Fund. The findings highlighted significant income disparities influenced by various socio-economic factors and underscored the importance of targeted educational and social programs to support vulnerable groups. Ongoing efforts to improve data quality and capture additional variables will be essential to maintain and enhance the model's effectiveness. The insights gained from this study can inform policy decisions and contribute to a more equitable and efficient SHIF program.
+
+## Future Model Enhancement
+1. **Model Enhancement and Deployment**:
+   - Fine-tune hyperparameters and experiment with advanced algorithms to improve model accuracy.
+   - Integrate the model into a user-friendly interface for easy access.
+2. **Data Improvement**:
+   - Regularly update the dataset to maintain model relevance.
+   - Implement robust data cleaning techniques to handle missing values and outliers.
+3. **Policy Recommendations**:
+   - Use model insights to identify and support low-income households.
+   - Adjust SHIF contribution levels based on predicted incomes to ensure fairness.
+
+## Next Steps
+1. **Model Refinement**: Continue refining and optimizing the models for better performance.
+2. **Comprehensive Evaluation**: Evaluate models using additional metrics to ensure robustness.
+3. **User Engagement**: Develop and deploy user-friendly tools for wider accessibility.
+4. **Ongoing Data Collection**: Establish continuous data collection mechanisms to keep the model updated.
+
+By following these recommendations and addressing the identified limitations, this project can significantly contribute to the effectiveness and fairness of Social Health Insurance Fund contributions in Kenya’s informal sector.
