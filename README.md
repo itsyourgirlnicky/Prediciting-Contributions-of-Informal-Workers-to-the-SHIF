@@ -1,6 +1,6 @@
 
-# Predicting Social Health Insurance Fund Contributions from Kenya’s Informal Sector Workers ![image](https://github.com/user-attachments/assets/d0b3e08e-ccea-4db0-b549-3f5449907f20)
-
+# Predicting Social Health Insurance Fund Contributions from Kenya’s Informal Sector Workers 
+![image](https://github.com/user-attachments/assets/d0b3e08e-ccea-4db0-b549-3f5449907f20)
 
 ## Table of Contents
 1. [Introduction](#introduction)
