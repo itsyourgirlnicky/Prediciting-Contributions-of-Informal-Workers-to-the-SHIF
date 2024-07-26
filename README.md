@@ -52,38 +52,38 @@ Data preparation involves handling missing values, normalizing features, and enc
 ### Key Insights
 - **Income Distribution**: 
 
-![alt text](income_groups_distribution-1.png)
+![respondent_education_vs_income_group](https://github.com/user-attachments/assets/a3da5ef0-9195-457b-9b7d-572a4d880471)
 
 
 The bar chart illustrates the frequency distribution of income groups based on how much individuals were paid in the last month. The income groups are divided into ranges: 0-10k, 10k-20k, 20k-30k, 30k-40k, and 40k-50k. The chart reveals that the 0-10k and 10k-20k income groups have the highest frequencies, indicating a large portion of the population falls within these lower income brackets. This distribution suggests a concentration of individuals in the lower income ranges.
 
 - **Region Distribution**:
 
-![alt text](region_distribution-1.png)
+![region_distribution](https://github.com/user-attachments/assets/de9d2214-6478-4b7a-be34-f3e3cbc290a6)
 
 The bar chart depicts the distribution of regions where individuals in Kenya are working in the informal sector. Kisumu has the highest frequency of individuals, followed by West Pokot, Kericho, and Tana River. This visualization highlights the diverse geographic spread of informal sector employment in Kenya.
 
 - **Literacy Levels**:
-
-![alt text](literacy_distribution-1.png)
+![literacy_vs_income_group](https://github.com/user-attachments/assets/eb1dcba7-84fa-49d7-85ca-44dbb441781a)
 
 The bar chart illustrates the distribution of literacy levels among individuals. The "able to read whole sentence" category has the highest frequency, suggesting a relatively high level of literacy among the population.
 
 - **Occupation Distribution**:
 
-![alt text](occupation_grouped_distribution-1.png)
+![occupation_grouped_distribution-1](https://github.com/user-attachments/assets/6697704a-d33c-47a4-aea9-6783c779c709)
+
 
 The bar chart shows the distribution of various grouped occupations. 'Agriculture - employee' and 'skilled manual' categories have the highest frequencies, indicating a significant portion of the population is employed in agricultural work and skilled manual labor.
 
 - **Literacy vs Income**:
 
-![alt text](literacy_vs_income_group-1.png)
+![literacy_vs_income_group-1](https://github.com/user-attachments/assets/9247ec7b-436b-46a2-83ab-f5c7be2da0f7)
 
 The bar chart shows that higher literacy (ability to read whole sentences) is more prevalent among individuals with lower to mid-range incomes, while lower literacy is more common in the lowest income groups.
 
 - **Education vs Income**:
 
-![alt text](respondent_education_vs_income_group-1.png)
+![respondent_education_vs_income_group-1](https://github.com/user-attachments/assets/937bc17f-4e82-43da-9599-b4f0d9791b18)
 
 The bar chart illustrates the relationship between respondent education levels and income groups. Higher education is associated with higher income groups, while lower education is more common in lower income groups.
 
@@ -107,7 +107,7 @@ Data preprocessing includes scaling features, encoding categorical variables, an
 ## Evaluation: Best Model (K-Nearest Neighbors)
 Models are evaluated using metrics such as accuracy, precision, recall, and F1 score. ROC curves and confusion matrices provide a visual representation of model performance.
 
-![alt text](image.png)
+![image](https://github.com/user-attachments/assets/d9606c91-2db8-4751-8e4f-074851688d20)
 
 The confusion matrix and classification report for the K-Nearest Neighbors (KNN) model show outstanding performance. The model achieved perfect classification across all classes, resulting in an overall accuracy of 1.00 (100%).
 
