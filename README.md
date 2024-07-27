@@ -90,7 +90,6 @@ The bar chart shows that higher literacy (ability to read whole sentences) is mo
 The bar chart illustrates the relationship between respondent education levels and income groups. Higher education is associated with higher income groups, while lower education is more common in lower income groups.
 
 - **Age distribution vs academic level**:
-
 ![age_age](https://github.com/user-attachments/assets/5d10d360-b6f5-4585-a4e8-1341a97b6bb9)
 
 The swarm plot shows the distribution of respondents' ages across different education levels. Most respondents are between 20 and 45 years old. Categories like complete primary and incomplete secondary have a higher density of respondents, indicating they are more common, while higher education and complete secondary have fewer respondents.
