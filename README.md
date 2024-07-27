@@ -106,7 +106,7 @@ Data preprocessing includes scaling features, encoding categorical variables, an
 7. K-Nearest Neighbors
 8. Deep Learning
 
-## Evaluation: 
+## Evaluation 
 
 **Receiver Operating Characteristic (ROC)**
 
