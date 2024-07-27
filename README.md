@@ -106,7 +106,13 @@ Data preprocessing includes scaling features, encoding categorical variables, an
 7. K-Nearest Neighbors
 8. Deep Learning
 
-## Evaluation: Best Model (K-Nearest Neighbors)
+## Evaluation: 
+**Receiver Operating Characteristic (ROC)**
+![image](https://github.com/user-attachments/assets/5fc8e372-da96-4b09-8702-a5050d114892)
+
+The curve plots the True Positive Rate (sensitivity) against the False Positive Rate (1-specificity) for each classifier. From the ROC curve, it is evident that all classifiers except Naive Bayes achieve perfect performance with an Area Under the Curve (AUC) of 1.00. This indicates flawless discrimination between classes for KNN, Decision Tree, Random Forest, Gradient Boosting, SVM, and Logistic Regression models. The Naive Bayes classifier, while still performing well, has a slightly lower AUC of 0.96, indicating some degree of misclassification compared to the other models. The near-perfect and identical ROC curves for KNN, Decision Tree, Random Forest, Gradient Boosting, SVM, and Logistic Regression suggest these models are exceptionally effective for this classification task, reflecting their high accuracy and reliability. The Naive Bayes classifier, although slightly less accurate, still demonstrates strong performance, making it a viable option depending on the specific context and requirements of the task.
+
+**Best Model (K-Nearest Neighbors)**
 Models are evaluated using metrics such as accuracy, precision, recall, and F1 score. ROC curves and confusion matrices provide a visual representation of model performance.
 
 ![image](https://github.com/user-attachments/assets/d9606c91-2db8-4751-8e4f-074851688d20)
