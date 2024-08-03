@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIF Contribution Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>SHIF Contribution Predictor</h1>
+        </div>
+        <div class="chat-body">
+            <form id="predictForm">
+                <div class="input-group">
+                    <label for="last_month_payment">How much paid in last month:</label>
+                    <input type="number" id="last_month_payment" name="how_much_paid_in_last_month.1" required>
+                </div>
+                <div class="input-group">
+                    <label for="occupation">Occupation (grouped):</label>
+                    <input type="text" id="occupation" name="occupation_grouped" required>
+                </div>
+                <div class="input-group">
+                    <label for="wealth_index">Wealth index combined:</label>
+                    <input type="text" id="wealth_index" name="wealth_index_combined" required>
+                </div>
+                <div class="input-group">
+                    <label for="partner_occupation">Husband/partner's occupation (grouped):</label>
+                    <input type="text" id="partner_occupation" name="husband_partner_occupation_grouped" required>
+                </div>
+                <div class="input-group">
+                    <label for="partner_education">Husband/partner's educational attainment:</label>
+                    <input type="text" id="partner_education" name="husband_partner_educational_attainment" required>
+                </div>
+                <button type="submit">Predict Contribution</button>
+            </form>
+            <div id="result" class="result"></div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
