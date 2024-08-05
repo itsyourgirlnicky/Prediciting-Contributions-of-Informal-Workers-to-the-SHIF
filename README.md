@@ -10,12 +10,11 @@
 7. [Data Preparation and Cleaning](#data-preparation-and-cleaning)
 8. [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
 9. [Statistical Analysis](#statistical-analysis)
-10. [Data Preprocessing](#data-preprocessing)
-11. [Modeling](#modeling)
-12. [Evaluation](#evaluation)
-13. [Conclusions](#conclusions)
-14. [Recommendations](#recommendations)
-15. [Next Steps](#next-steps)
+10. [Modeling](#modeling)
+11. [Evaluation](#evaluation)
+12. [Conclusions](#conclusions)
+13. [Recommendations](#recommendations)
+14. [Next Steps](#next-steps)
 
 ## Introduction
 In 2023, the Kenyan government enacted the Social Health Insurance Act, aiming to achieve Universal Health Coverage (UHC). This initiative strives to ensure that all citizens have access to quality healthcare services without incurring catastrophic health expenses. However, predicting the appropriate contributions for informal sector workers remains a challenge due to their variable incomes. Developing an accurate income prediction model can enhance the SHIF program by ensuring fair contributions, identifying low-income households for targeted social programs, and supporting the most vulnerable.
@@ -96,9 +95,6 @@ The swarm plot shows the distribution of respondents' ages across different educ
 
 ## Statistical Analysis
 Statistical methods, such as the Kruskal-Wallis test, are employed to analyze the relationships between different variables and their impact on income predictions. Results indicate significant income differences across various demographic and socio-economic factors, highlighting the multifaceted nature of income determinants.
-
-## Data Preprocessing
-Data preprocessing includes scaling features, encoding categorical variables, and splitting the dataset into training and testing sets. This ensures that the models are trained on clean and normalized data, enhancing their predictive performance.
 
 ## Modeling
 ### Models Used
