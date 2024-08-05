@@ -1,35 +1,30 @@
-document.getElementById('predictForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+$(document).ready(function() {
+    $('#contributionForm').on('submit', function(event) {
+        event.preventDefault();
 
-    const demographics = document.getElementById('demographics').value;
-    const location = document.getElementById('location').value;
-    const income_group = document.getElementById('income_group').value;
-    const work_type = document.getElementById('work_type').value;
+        var formData = {
+            amountPaid: $('#amountPaid').val(),
+            region: $('#region').val(),
+            occupation: $('#occupation').val()
+        };
 
-    const data = {
-        demographics: demographics,
-        location: location,
-        income_group: income_group,
-        work_type: work_type
-    };
-
-    fetch('/predict', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(data => {
-        const resultDiv = document.getElementById('result');
-        if (data.error) {
-            resultDiv.textContent = `Error: ${data.error}`;
-        } else {
-            resultDiv.textContent = `Predicted Contribution: ${data.prediction}`;
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
+        $.ajax({
+            url: '/predict',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(formData),
+            success: function(response) {
+                if (response.prediction) {
+                    $('#result').html('<h4>Predicted Contribution: ' + response.prediction + '</h4>');
+                } else if (response.error) {
+                    $('#result').html('<h4>Error: ' + response.error + '</h4>');
+                }
+            },
+            error: function(xhr, status, error) {
+                console.log(xhr.responseText);
+                $('#result').html('<h4>An unexpected error occurred: ' + xhr.responseText + '</h4>');
+            }
+        });
     });
 });
+
