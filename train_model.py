@@ -12,20 +12,8 @@ warnings.filterwarnings("ignore")
 # Load the dataset
 df = pd.read_csv('Dataset 2.csv')
 
-# Drop unnecessary columns
-df = df.drop(columns=[
-    'highest educational level', 'highest year of education', 'time to get to water source',
-    'household has: refrigerator', 'religion','husband/partner\'s education level','ethnicity',
-    'education in single years', 'household has: telephone (land-line)','educational level',
-    'highest year of education (at level in mv106)', 'religion.1','partner education',
-    'relationship to household head.1', 'sex of household head.1', 'age of household head.1',
-    'literacy.1', 'owns a mobile telephone.1', 'last 12 months use mobile telephone for financial transactions.1',
-    'is respondent\'s mobile phone a smart phone.1', 'has an account in a bank or other financial institution.1',
-    'use of internet.1', 'frequency of using internet last month.1', 'self reported health status.1',
-    'wealth index combined.1', 'husband/partner\'s total number of years of education',
-    'justifies domestic violence: refuses to cook', 'respondent education.1','how much paid in last month',
-    'occupation','respondent\'s occupation','case identification','wealth index for urban/rural','husband/partner\'s occupation'
-])
+# Keep only the necessary columns
+df = df[['how much paid in last month.1', 'region', 'occupation (grouped)']]
 
 # Replace 'don't know' with NaN and 'did not work in last month' with 0
 df['how much paid in last month.1'] = df['how much paid in last month.1'].replace({'don\'t know': np.nan, 'did not work in last month': 0})
@@ -35,31 +23,6 @@ df['how much paid in last month.1'] = pd.to_numeric(df['how much paid in last mo
 
 # Impute missing income values with the median
 df['how much paid in last month.1'] = df['how much paid in last month.1'].fillna(df['how much paid in last month.1'].median())
-
-# Replace ".a" with "Unknown" in categorical columns
-df['husband/partner\'s occupation (grouped)'] = df['husband/partner\'s occupation (grouped)'].replace('.a', 'Unknown')
-df['type of cooking fuel'] = df['type of cooking fuel'].replace(['17', '15'], 'unknown')
-df['occupation (grouped)'] = df['occupation (grouped)'].replace('.a', 'Unknown')
-df['respondent\'s occupation (grouped)'] = df['respondent\'s occupation (grouped)'].replace('.a', 'Unknown')
-
-# Fill missing values in 'is respondent's mobile phone a smart phone' with mode
-df['is respondent\'s mobile phone a smart phone'] = df['is respondent\'s mobile phone a smart phone'].fillna(df['is respondent\'s mobile phone a smart phone'].mode()[0])
-
-# Function to cap outliers using the IQR method
-def cap_outliers(df, column):
-    Q1 = df[column].quantile(0.25)
-    Q3 = df[column].quantile(0.75)
-    IQR = Q3 - Q1
-    lower_bound = Q1 - 1.5 * IQR
-    upper_bound = Q3 + 1.5 * IQR
-    df[column] = np.where(df[column] < lower_bound, lower_bound, df[column])
-    df[column] = np.where(df[column] > upper_bound, upper_bound, df[column])
-    return df
-
-# Apply the function to each numeric column
-numeric_columns = df.select_dtypes(include=[np.number]).columns
-for column in numeric_columns:
-    df = cap_outliers(df, column)
 
 # Encode categorical features
 object_cols = df.select_dtypes(include=['object', 'category']).columns.tolist()
@@ -107,3 +70,8 @@ with open('label_encoders.pkl', 'wb') as file:
 # Save the fitted scaler
 scaler_filename = 'scaler.pkl'
 joblib.dump(scaler, scaler_filename)
+
+# Save the feature names
+feature_names = X.columns.tolist()
+with open('feature_names.pkl', 'wb') as file:
+    joblib.dump(feature_names, file)

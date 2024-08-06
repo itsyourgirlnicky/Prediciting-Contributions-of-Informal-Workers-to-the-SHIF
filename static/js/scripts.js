@@ -3,7 +3,7 @@ $(document).ready(function() {
         event.preventDefault();
 
         var formData = {
-            amountPaid: $("#amountPaid").val(),
+            amountPaid: parseFloat($("#amountPaid").val()),
             region: $("#region").val(),
             occupation: $("#occupation").val()
         };
@@ -15,7 +15,7 @@ $(document).ready(function() {
             contentType: "application/json",
             dataType: "json",
             success: function(response) {
-                $("#result").html("Predicted Contribution Amount: " + response.predicted_contribution_amount.toFixed(2));
+                $("#result").html("Predicted Contribution Amount: " + response.predicted_contribution.toFixed(2));
             },
             error: function(error) {
                 console.log("Error: ", error);
