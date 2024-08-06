@@ -1,30 +1,26 @@
 $(document).ready(function() {
-    $('#contributionForm').on('submit', function(event) {
+    $("#contributionForm").submit(function(event) {
         event.preventDefault();
 
         var formData = {
-            amountPaid: $('#amountPaid').val(),
-            region: $('#region').val(),
-            occupation: $('#occupation').val()
+            amountPaid: $("#amountPaid").val(),
+            region: $("#region").val(),
+            occupation: $("#occupation").val()
         };
 
         $.ajax({
-            url: '/predict',
-            type: 'POST',
-            contentType: 'application/json',
+            type: "POST",
+            url: "http://127.0.0.1:8000/predict",
             data: JSON.stringify(formData),
+            contentType: "application/json",
+            dataType: "json",
             success: function(response) {
-                if (response.prediction) {
-                    $('#result').html('<h4>Predicted Contribution: ' + response.prediction + '</h4>');
-                } else if (response.error) {
-                    $('#result').html('<h4>Error: ' + response.error + '</h4>');
-                }
+                $("#result").html("Predicted Contribution Amount: " + response.predicted_contribution_amount.toFixed(2));
             },
-            error: function(xhr, status, error) {
-                console.log(xhr.responseText);
-                $('#result').html('<h4>An unexpected error occurred: ' + xhr.responseText + '</h4>');
+            error: function(error) {
+                console.log("Error: ", error);
+                $("#result").html("Error predicting contribution amount.");
             }
         });
     });
 });
-
