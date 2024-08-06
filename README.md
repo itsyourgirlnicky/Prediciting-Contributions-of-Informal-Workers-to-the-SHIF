@@ -162,3 +162,5 @@ The study successfully developed a robust model to predict the contributions of 
 4. **Ongoing Data Collection**: Establish continuous data collection mechanisms to keep the model updated.
 
 By following these recommendations and addressing the identified limitations, this project can significantly contribute to the effectiveness and fairness of Social Health Insurance Fund contributions in Kenya’s informal sector.
+
+Link to Tableau Pulblic: https://public.tableau.com/authoring/Understanding_Kenyan_population/Dashboard1#1 
