@@ -1,0 +1,204 @@
+/* Reset some default browser styles */
+body, h1, h2, h3, p, ul, form {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #ffffff; /* White background for the body */
+}
+
+/* Header styling */
+header {
+    background-color: #ffffff; /* Header background color */
+    color: #000;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo {
+    flex-shrink: 0; /* Prevent shrinking of the logo */
+}
+
+header .logo img {
+    width: 300px; /* Set logo size */
+    height: auto;
+}
+
+header .nav {
+    display: flex;
+    flex-grow: 1; /* Allow nav to take up remaining space */
+    justify-content: center;
+}
+
+header .nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header .nav ul li {
+    margin: 0 25px; /* Space between navigation items */
+    font-size:20px;
+}
+
+header .nav ul li a {
+    color: #28a745;
+    text-decoration: none;
+}
+
+/* Button on the right side of the header */
+header .cta-button {
+    background-color: #28a745;
+    color: #000000;
+    font-size:20px;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid #28a745;
+    margin-left: auto;
+}
+
+header .cta-button:hover {
+    background-color: #e9ecef;
+}
+
+/* Hero section styling */
+#hero {
+    background: #f0f0f0;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.hero-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background-color: #922529;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.cta-button:hover {
+    background-color: #218838;
+}
+
+/* Main section styling */
+main {
+    padding: 20px 0;
+}
+
+section {
+    padding: 40px 20px;
+}
+
+section h2 {
+    margin-bottom: 20px;
+    font-size: em;
+    text-align: center;
+}
+
+section p {
+    font-size: 1.2em;
+    text-align: center;
+}
+
+/* "Our Services" section styling */
+#services {
+    background-color: #f8f9fa; /* Light background color for contrast */
+}
+
+#services .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.service {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 300px; /* Fixed width for consistency */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.service h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.service p {
+    font-size: 1em;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form label {
+    margin-bottom: 5px;
+}
+
+form input, form textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #218838;
+}
+
+/* Footer styling */
+footer {
+    background-color: #28a745; /* Footer background color */
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+
+
+
+/* other decos */
