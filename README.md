@@ -76,11 +76,6 @@ The bar chart illustrates the distribution of literacy levels among individuals.
 
 The bar chart shows the distribution of various grouped occupations. 'Agriculture - employee' and 'skilled manual' categories have the highest frequencies, indicating a significant portion of the population is employed in agricultural work and skilled manual labor.
 
-- **Literacy vs Income**:
-
-![literacy_vs_income_group-1](https://github.com/user-attachments/assets/9247ec7b-436b-46a2-83ab-f5c7be2da0f7)
-
-The bar chart shows that higher literacy (ability to read whole sentences) is more prevalent among individuals with lower to mid-range incomes, while lower literacy is more common in the lowest income groups.
 
 - **Education vs Income**:
 
