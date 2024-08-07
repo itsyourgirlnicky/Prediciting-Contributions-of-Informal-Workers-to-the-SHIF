@@ -118,7 +118,7 @@ The curve plots the True Positive Rate (sensitivity) against the False Positive 
 **Best Model (K-Nearest Neighbors)**
 
 Models are evaluated using metrics such as accuracy, precision, recall, and F1 score. The confusion matrices provide a visual representation of model performance.
-The bar graph indicate that the K-Nearest Neighbors (KNN) model show outstanding performance. The model achieved perfect classification across all classes, resulting in an overall accuracy of 1.00 (100%).
+The bar graph indicate that the Random forest model show outstanding performance. The model achieved perfect classification across all classes, resulting in an overall accuracy of 99 percent.
 
 ## Findings
 - **Income Determinants**: Significant income differences were found across various demographic and socio-economic factors, such as age, region, educational attainment, literacy, and household characteristics.
