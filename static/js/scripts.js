@@ -1,25 +1,36 @@
 $(document).ready(function() {
-    $("#contributionForm").submit(function(event) {
-        event.preventDefault();
+    $('#contributionForm').on('submit', function(e) {
+        e.preventDefault();
 
-        var formData = {
-            amountPaid: parseFloat($("#amountPaid").val()),
-            region: $("#region").val(),
-            occupation: $("#occupation").val()
-        };
+        var amountPaid = $('#amountPaid').val();
+        var region = $('#region').val();
+        var occupation = $('#occupation').val();
 
         $.ajax({
-            type: "POST",
-            url: "http://127.0.0.1:8000/predict",
-            data: JSON.stringify(formData),
-            contentType: "application/json",
-            dataType: "json",
+            url: '/predict',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                amountPaid: parseFloat(amountPaid),
+                region: region,
+                occupation: occupation
+            }),
             success: function(response) {
-                $("#result").html("Predicted Contribution Amount: " + response.predicted_contribution.toFixed(2));
+                var resultHtml = `
+                    <div class="card">
+                        <div class="card-header">
+                            Predicted Contribution Amount
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Your Predicted Contribution</h5>
+                            <p class="card-text">Based on your inputs, the predicted contribution amount is: <strong>Ksh ${response.predicted_contribution.toFixed(2)}</strong></p>
+                        </div>
+                    </div>
+                `;
+                $('#result').html(resultHtml);
             },
             error: function(error) {
-                console.log("Error: ", error);
-                $("#result").html("Error predicting contribution amount.");
+                $('#result').html('<div class="alert alert-danger">An error occurred while predicting the contribution amount.</div>');
             }
         });
     });

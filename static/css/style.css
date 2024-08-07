@@ -1,37 +1,41 @@
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
+body.chatbox {
+    background-color: #f8f9fa;
 }
 
 header {
-    background-color: green;
+    background-color: #28a745;
     color: white;
-    padding: 10px;
-    display: flex;
-    align-items: center;
+    padding: 15px 0;
 }
 
 header img {
-    height: 80px; 
+    max-width: 100px;
     margin-right: 20px;
 }
 
-footer {
-    background-color: green;
-    color: white;
-    padding: 10px;
-    margin-top: auto;
+header h1 {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
 }
 
-.chatbox {
-    flex: 1;
+.container {
+    margin-top: 30px;
 }
 
 .card {
-    margin: auto;
-    max-width: 600px;
-    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+footer {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer p {
+    margin: 0;
+}

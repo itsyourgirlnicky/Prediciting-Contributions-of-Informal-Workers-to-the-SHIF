@@ -2,9 +2,6 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
-import pandas as pd
-import joblib
-import numpy as np
 import logging
 
 # Set up logging
@@ -12,14 +9,6 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = FastAPI()
-
-# Load the trained model, label encoders, scaler, and feature names
-model = joblib.load('random_forest_regressor.pkl')
-with open('label_encoders.pkl', 'rb') as file:
-    label_encoders = joblib.load(file)
-scaler = joblib.load('scaler.pkl')
-with open('feature_names.pkl', 'rb') as file:
-    feature_names = joblib.load(file)
 
 class ContributionInput(BaseModel):
     amountPaid: float
@@ -29,7 +18,7 @@ class ContributionInput(BaseModel):
 class ContributionOutput(BaseModel):
     predicted_contribution: float
 
-# Comprehensive mappings for region and occupation
+# Comprehensive mappings for region and occupation (if needed for other purposes)
 region_mapping = {
     "Mombasa": 0, "Kwale": 1, "Kilifi": 2, "Tana River": 3, "Lamu": 4, "Taita-Taveta": 5,
     "Garissa": 6, "Wajir": 7, "Mandera": 8, "Marsabit": 9, "Isiolo": 10, "Meru": 11,
@@ -57,46 +46,10 @@ def predict_contribution(input_data: ContributionInput):
         # Log the input data
         logger.info(f"Received input data: {input_data}")
 
-        # Prepare the input data for prediction
-        data = {
-            'how much paid in last month.1': [input_data.amountPaid],
-            'region': [input_data.region],
-            'occupation (grouped)': [input_data.occupation]
-        }
-        
-        # Convert the input data to a DataFrame
-        df = pd.DataFrame(data)
-        logger.info(f"DataFrame after creation: {df}")
-        
-        # Map the user input values to the encoded values expected by the model
-        df['region'] = df['region'].map(region_mapping)
-        df['occupation (grouped)'] = df['occupation (grouped)'].map(occupation_mapping)
-        logger.info(f"DataFrame after mapping: {df}")
-        
-        # Check if the mappings were successful
-        if df['region'].isnull().any() or df['occupation (grouped)'].isnull().any():
-            logger.error("Invalid region or occupation input value.")
-            raise ValueError("Invalid region or occupation input value.")
-        
-        # Ensure the numeric data is of type float
-        df['how much paid in last month.1'] = df['how much paid in last month.1'].astype(float)
-        logger.info(f"DataFrame after type conversion: {df}")
-
-        # Ensure all required features are present and in the correct order
-        df = df[feature_names]
-        logger.info(f"DataFrame after reindexing: {df}")
-        
-        # Standardize the data using the previously fitted scaler
-        df_rescaled = scaler.transform(df)
-        logger.info(f"DataFrame after scaling: {df_rescaled}")
-        
-        # Predict the contribution amount
-        prediction = model.predict(df_rescaled)
-        
-        # Extract the predicted contribution amount
-        predicted_contribution = prediction[0]
+        # Compute the contribution as 2.75% of the amountPaid
+        predicted_contribution = input_data.amountPaid * 0.0275
         logger.info(f"Predicted contribution: {predicted_contribution}")
-        
+
         return ContributionOutput(predicted_contribution=predicted_contribution)
     except Exception as e:
         logger.error(f"Exception occurred: {str(e)}")
