@@ -1,0 +1,8 @@
+# Ignore the file containing sensitive information
+shif-prediction-chatbot-59fe29b269e9.json
+
+# Ignore other common files/directories
+*.log
+*.tmp
+.DS_Store
+node_modules/
