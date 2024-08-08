@@ -159,4 +159,5 @@ Link to Tableau Pulblic: https://public.tableau.com/authoring/Understanding_Keny
 
 ## How to deploy 
  On the terminal run python app.py 
+ 
 Run the url on the browser
