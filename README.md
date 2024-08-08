@@ -74,7 +74,7 @@ The bar chart illustrates the distribution of literacy levels among individuals.
 ![occupation_grouped_distribution-1](https://github.com/user-attachments/assets/6697704a-d33c-47a4-aea9-6783c779c709)
 
 
-The bar chart shows the distribution of various grouped occupations. 'Agriculture - employee' and 'skilled manual' categories have the highest frequencies, indicating a significant portion of the population is employed in agricultural work and skilled manual labor.
+The bar chart shows the distribution of various grouped occupations. 'Agriculture - employee' and 'skilled manual' categories have the highest frequencies, indicating a significant portion of the population is employed in agricultural work and skilled manual labour.
 
 
 - **Education vs Income**:
@@ -113,13 +113,13 @@ The curve plots the True Positive Rate (sensitivity) against the False Positive 
 **Best Model (K-Nearest Neighbors)**
 
 Models are evaluated using metrics such as accuracy, precision, recall, and F1 score. The confusion matrices provide a visual representation of model performance.
-The bar graph indicate that the Random forest model show outstanding performance. The model achieved perfect classification across all classes, resulting in an overall accuracy of 99 percent.
+The bar graph indicates that the Random forest model shows outstanding performance. The model achieved perfect classification across all classes, resulting in an overall accuracy of 99 per cent.
 
 ## Findings
 - **Income Determinants**: Significant income differences were found across various demographic and socio-economic factors, such as age, region, educational attainment, literacy, and household characteristics.
 - **Model Performance**: The KNN model demonstrated perfect classification, with an accuracy of 1.00. Other classifiers also achieved high performance, indicating their effectiveness in predicting income groups.
 - **Literacy and Income Group**: Higher literacy is associated with higher income groups, while lower literacy is more common in the lowest income groups.
-- **Occupation and Income Group**: The majority of individuals in the informal sector are engaged in agricultural work and skilled manual labor.
+- **Occupation and Income Group**: The majority of individuals in the informal sector are engaged in agricultural work and skilled manual labour.
 
 ## Recommendations
 1. **Targeted Educational Programs**: Implement programs to improve literacy and vocational skills among informal sector workers.
@@ -155,9 +155,9 @@ The study successfully developed a robust model to predict the contributions of 
 
 By following these recommendations and addressing the identified limitations, this project can significantly contribute to the effectiveness and fairness of Social Health Insurance Fund contributions in Kenya’s informal sector.
 
-Link to Tableau Pulblic: https://public.tableau.com/authoring/Understanding_Kenyan_population/Dashboard1#1 
+Link to Tableau Public: https://public.tableau.com/app/profile/cynthia.dalmas/viz/Understanding_Kenyan_population/Dashboard1 
 
 ## How to deploy 
  On the terminal run python app.py 
  
-Run the url on the browser
+Run the URL on the browser
