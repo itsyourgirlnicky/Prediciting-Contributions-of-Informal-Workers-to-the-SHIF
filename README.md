@@ -161,3 +161,9 @@ The study successfully developed a robust model to predict the contributions of 
 By following these recommendations and addressing the identified limitations, this project can significantly contribute to the effectiveness and fairness of Social Health Insurance Fund contributions in Kenya’s informal sector.
 
 Link to Tableau Pulblic: https://public.tableau.com/authoring/Understanding_Kenyan_population/Dashboard1#1 
+
+
+## How to deploy 
+ On the terminal run python app.py 
+ 
+Run the URL on the browser
