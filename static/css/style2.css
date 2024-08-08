@@ -1,21 +1,18 @@
-/* Reset some default browser styles */
 body, h1, h2, h3, p, ul, form {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Basic styling */
 body {
     font-family: Arial, sans-serif;
     color: #333;
     line-height: 1.6;
-    background-color: #ffffff; /* White background for the body */
+    background-color: #ffffff; 
 }
 
-/* Header styling */
 header {
-    background-color: #ffffff; /* Header background color */
+    background-color: #ffffff; 
     color: #000;
     padding: 10px 20px;
     display: flex;
@@ -28,7 +25,7 @@ header .logo {
 }
 
 header .logo img {
-    width: 300px; /* Set logo size */
+    width: 300px; 
     height: auto;
 }
 
@@ -120,7 +117,6 @@ section p {
     text-align: center;
 }
 
-/* "Our Services" section styling */
 #services {
     background-color: #f8f9fa; /* Light background color for contrast */
 }
@@ -139,7 +135,7 @@ section p {
     margin: 10px;
     padding: 20px;
     text-align: center;
-    width: 300px; /* Fixed width for consistency */
+    width: 300px; 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -192,7 +188,7 @@ form button:hover {
 
 /* Footer styling */
 footer {
-    background-color: #28a745; /* Footer background color */
+    background-color: #28a745; 
     color: #fff;
     padding: 10px 0;
     text-align: center;

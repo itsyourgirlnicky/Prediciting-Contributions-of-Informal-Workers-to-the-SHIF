@@ -9,14 +9,14 @@
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body class="chatbox">
     <header>
-        <img src="../static/images/logo.png" alt="Logo">
+        <img src="/static/images/logo.png" alt="Logo">
         <div class="container text-center">
             <h1 style="font-size: 24px;">SOCIAL HEALTH INSURANCE FUND CONTRIBUTION CHATBOT</h1>
-            "Using technology to deliver information faster and more efficiently."
+            <h1 style="font-size: 24px;">"Using technology to deliver information faster and more efficiently."</h1>
         </div>
     </header>
 
@@ -104,7 +104,16 @@
         </div>
     </div>
 
-    <script src="../static/js/scripts.js"></script>
+    <script src="/static/js/scripts.js"></script>
+
+    <!-- chatbot -->
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+  intent="WELCOME"
+  chat-title="SHIF Chatbot"
+  agent-id="shif-prediction-chatbot"
+  language-code="en"
+></df-messenger>
 
     <footer>
         <div class="text-center">

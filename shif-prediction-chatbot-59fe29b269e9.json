@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "shif-prediction-chatbot",
+  "private_key_id": "59fe29b269e9f8b75776df1bd840e95fbf0314a4",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCxnR4jG4PClv8a\nR2mAXGxtCWe8E0EG9X1/dapL4pGizX5SS5tNkbGnwh9PqekuH7YpTVWE+3lpgHqF\nu/7aEIYBUtoqjRXcBzUunQD1yYxL+NGfGO/0c05cpUUXEzRMWUY/C6kJBjALThjW\nUW6lVVI3AQdCdfyFI30lQr+zrx88S2naOTkUwqhuJj9jgo7UBpkkLjUYXWN0qtxE\n5rcQF6uFsbKHMbpR11g+Eo+tJfqVSUXevKaBRR4uY3zXUpVEN8xjaULCWmLMiZS3\nRE8JgeMqpMCirg6Y/W8fMij3xcIWzz+rhJ921ZHgthOpQNtAfXHFdPUtIXc1aysH\ns86ozv0rAgMBAAECggEADMnNK/++dp0y0SlEiXqRT5WzRq5ON5paYGCDYMMqwEGY\n4rad5n5i5iGXtoxh0f5BILheokLaN/eJTgxX3Ur+Rj8fns7mVlLQiFwpzKJBfA2p\nlJGrlhRTsPj9wGhG385q7+QlIuJNEd6CjEynSx3/27gy74NmQw6a/Qe3nNAZnCVY\nMAxhNclXW1pXOzDjvpnunPXCuTxsV583wA5rKsQm1BaJJ7IWuhihNXpYPhqwkRcu\nUE7evtGCafZhHtAJMJfaWskWmQ9mY0n9B4QaI4kQJbeDVucjf5twKAkzLkRbkl9T\nMQKy1wcSJOIwvor12IAlXFjnNFaFo+Ncdpa33p6L4QKBgQDv4T5wsGP9sufTXNlB\nBXNm7vEC72NiECZMJaDD8EEZZtnYM1wLkeTOPpO5mXsDVVCLexetDJvs5O+Az1ls\nZkigcO5VK26GutkPn86sBU/WAcelUOFpL3U2z83fESC3w1uD49i0et8rsyepxQC8\nyD1JYYQ+FF3wrC5390tzLiWCSwKBgQC9jK7esQqr2AqCRex6JHD2UcFkq0hQdRgT\niIeZXATnCK7eTW447lilm0iDKnlFuKy/Yu9CVVaPJ9l/LO1F2M4blorCgVWgj3gc\n456rkeb5AYnU+ESkIoOSkMdmsyhAr2H2YwBsgo/LHeAjP3sTVtvbvN9c0Di/3+06\nXzL8e0CkoQKBgDZFJGZEUer0zeQQzooaXJh+GILMfBSUiMWTgcKymVfQ4Bo8zGdF\ns5lBqRRFeAIyDA3yZFHfV2uKA/GFd7rBjU7XHeSg9dl/blpNkmlyrjRBpNRu7wBo\nH0GuU+pSqq9IgGzfYIi8f78YQjHzgw4y00LF0DBnVTV9DupPRX+ighPvAoGBAI0p\ng2XXRZI634CrYHSKRRI8SqGVKdK5kYeiixG8RO5mOgzWb3q4jo4uue7tJ8mzwfr6\nTCMDeOY+EC01ITN+Rein0YkPVtyvXA1vutAdZX0WFzbi+gOerIvvhIDIdfbOZk9e\n5YbqKPpksnKtqRP7ANuBqnrtmwXSV1K8aTU8+SRhAoGBAJyj5tyuvT2Z6Rs5tjZ0\nauz7v5tyAiM2n6aC6EoeBhX23OYXZuoDbs6J6WmJvVn69FEfv7W/Cn+s+mpTmMkg\nXVUQo29M6Xe+FekREbfLbt30F3bRBitCLDP0GxgY7xWQWLOqeSj9Ane3Ds379wSz\ngjgA+gN0ehdJulhnmBvU265q\n-----END PRIVATE KEY-----\n",
+  "client_email": "shif-prediction-chatbot@shif-prediction-chatbot.iam.gserviceaccount.com",
+  "client_id": "100292986350424745200",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/shif-prediction-chatbot%40shif-prediction-chatbot.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

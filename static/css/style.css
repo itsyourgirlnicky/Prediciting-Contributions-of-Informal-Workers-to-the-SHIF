@@ -39,3 +39,15 @@ footer {
 footer p {
     margin: 0;
 }
+
+df-messenger {
+    --df-messenger-bot-message: #2a28a7; 
+    --df-messenger-button-titlebar-color: #007bff;
+    --df-messenger-chat-background-color: #ffffff; 
+    --df-messenger-font-color: #000000; 
+    --df-messenger-send-icon: #007bff; 
+    --df-messenger-user-message: #34a853; 
+    --df-messenger-button-titlebar-font-color: #ffffff;
+    --df-messenger-width: 350px; 
+    --df-messenger-height: 200px; 
+}
