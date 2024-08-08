@@ -5,9 +5,9 @@ from pydantic import BaseModel
 import logging
 import joblib
 import numpy as np
+import requests
 from google.oauth2 import service_account
 from google.cloud import dialogflow_v2 as dialogflow
-import requests
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -23,26 +23,21 @@ class ContributionInput(BaseModel):
 class ContributionOutput(BaseModel):
     predicted_contribution: float
 
-# Comprehensive mappings for region and occupation
-region_mapping = {
-    "Mombasa": 0, "Kwale": 1, "Kilifi": 2, "Tana River": 3, "Lamu": 4, "Taita-Taveta": 5,
-    "Garissa": 6, "Wajir": 7, "Mandera": 8, "Marsabit": 9, "Isiolo": 10, "Meru": 11,
-    "Tharaka-Nithi": 12, "Embu": 13, "Kitui": 14, "Machakos": 15, "Makueni": 16,
-    "Nyandarua": 17, "Nyeri": 18, "Kirinyaga": 19, "Murang'a": 20, "Kiambu": 21,
-    "Turkana": 22, "West Pokot": 23, "Samburu": 24, "Trans Nzoia": 25, "Uasin Gishu": 26,
-    "Elgeyo-Marakwet": 27, "Nandi": 28, "Baringo": 29, "Laikipia": 30, "Nakuru": 31,
-    "Narok": 32, "Kajiado": 33, "Kericho": 34, "Bomet": 35, "Kakamega": 36, "Vihiga": 37,
-    "Bungoma": 38, "Busia": 39, "Siaya": 40, "Kisumu": 41, "Homa Bay": 42, "Migori": 43,
-    "Kisii": 44, "Nyamira": 45, "Nairobi": 46
-}
+# Load the pre-trained model, scaler, and label encoders
+try:
+    model = joblib.load("random_forest_regressor.pkl")
+    scaler = joblib.load("scaler.pkl")
+    label_encoders = joblib.load("label_encoders.pkl")
+    with open("feature_names.pkl", 'rb') as file:
+        feature_names = joblib.load(file)
+    logger.info("Model and related files loaded successfully.")
+except Exception as e:
+    logger.error(f"Error loading model or related files: {e}")
+    raise e
 
-occupation_mapping = {
-    "Managerial": 0, "Professional": 1, "Technical": 2, "Clerical": 3, "Service": 4,
-    "Skilled Manual": 5, "Semi-Skilled Manual": 6, "Unskilled Manual": 7, "Agricultural": 8, "Other": 9
-}
-
-# Load the pre-trained model
-model = joblib.load("random_forest_regressor.pkl")
+# Helper function to check if value exists in the encoder classes
+def is_valid_label(value, encoder):
+    return value in encoder.classes_
 
 @app.get("/")
 def read_root():
@@ -58,48 +53,70 @@ def predict_contribution(input_data: ContributionInput):
         # Log the input data
         logger.info(f"Received input data: {input_data}")
 
+        # Check if the region and occupation are in the known lists
+        if not is_valid_label(input_data.region, label_encoders['region']):
+            raise ValueError(f"Region '{input_data.region}' is not recognized. Please provide a valid region.")
+        if not is_valid_label(input_data.occupation, label_encoders['occupation (grouped)']):
+            raise ValueError(f"Occupation '{input_data.occupation}' is not recognized. Please provide a valid occupation.")
+
         # Map the region and occupation to their corresponding numerical values
-        region_encoded = region_mapping[input_data.region]
-        occupation_encoded = occupation_mapping[input_data.occupation]
+        region_encoded = label_encoders['region'].transform([input_data.region])[0]
+        occupation_encoded = label_encoders['occupation (grouped)'].transform([input_data.occupation])[0]
 
         # Prepare the input for the model
         model_input = np.array([[input_data.amountPaid, region_encoded, occupation_encoded]])
         logger.info(f"Model input: {model_input}")
 
+        # Scale the input
+        model_input_scaled = scaler.transform(model_input)
+        logger.info(f"Scaled model input: {model_input_scaled}")
+
         # Predict the contribution using the pre-trained model
-        predicted_contribution = model.predict(model_input)[0]
+        predicted_contribution = model.predict(model_input_scaled)[0]
         logger.info(f"Predicted contribution: {predicted_contribution}")
 
-        return ContributionOutput(predicted_contribution=predicted_contribution)
+        # Calculate SHIF contribution based on 2.75% of the predicted contribution
+        shif_contribution = predicted_contribution * 0.0275
+        logger.info(f"SHIF contribution: {shif_contribution}")
+
+        return ContributionOutput(predicted_contribution=shif_contribution)
+    except ValueError as e:
+        logger.error(f"ValueError occurred: {str(e)}")
+        raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
         logger.error(f"Exception occurred: {str(e)}")
         raise HTTPException(status_code=400, detail=str(e))
 
 # Dialogflow webhook endpoint
-credentials = service_account.Credentials.from_service_account_file("shif-prediction-chatbot-59fe29b269e9.json")
-project_id = "shif-prediction-chatbot"
-search_engine_id = "96d81e96796cd4218"
-api_key = "AIzaSyCXsk4Gt9GIZnC5c3rzBF7wfuyzQN6wqLM"
+try:
+    credentials = service_account.Credentials.from_service_account_file("shif-prediction-chatbot-59fe29b269e9.json")
+    project_id = "shif-prediction-chatbot"
+    search_engine_id = "96d81e96796cd4218"
+    api_key = "AIzaSyCXsk4Gt9GIZnC5c3rzBF7wfuyzQN6wqLM"
+    logger.info("Google credentials loaded successfully.")
+except Exception as e:
+    logger.error(f"Error loading Google credentials: {e}")
+    raise e
 
 def search_internet(query):
-    url = f"https://www.googleapis.com/customsearch/v1?q={query}&cx={search_engine_id}&key={api_key}"
-    logger.info(f"Searching internet with URL: {url}")
-    response = requests.get(url)
-    data = response.json()
-    logger.info(f"Received data: {data}")
-    if "items" in data:
-        snippet = data["items"][0]["snippet"]
-        logger.info(f"Search result: {snippet}")
-        return snippet
-    else:
-        logger.info("No relevant information found.")
-        return "No relevant information found."
+    try:
+        url = f"https://www.googleapis.com/customsearch/v1?q={query}&cx={search_engine_id}&key={api_key}"
+        logger.info(f"Searching internet with URL: {url}")
+        response = requests.get(url)
+        data = response.json()
+        logger.info(f"Received data: {data}")
+        if "items" in data:
+            return data["items"][0]["snippet"]
+        else:
+            return "No relevant information found."
+    except Exception as e:
+        logger.error(f"Error occurred while searching the internet: {e}")
+        return "Error occurred while searching the internet."
 
 @app.post("/webhook")
 async def dialogflow_webhook(request: Request):
     try:
         req = await request.json()
-        logger.info(f"Received Dialogflow request: {req}")
         session_id = req['session'].split('/')[-1]
         query_text = req['queryResult']['queryText']
         response_text = search_internet(query_text)
@@ -109,9 +126,7 @@ async def dialogflow_webhook(request: Request):
         })
     except Exception as e:
         logger.error(f"Exception occurred in webhook: {str(e)}")
-        return JSONResponse({
-            "fulfillmentText": f"Error occurred: {str(e)}"
-        }, status_code=500)
+        raise HTTPException(status_code=500, detail="Webhook processing error")
 
 # Mount the static files directory
 app.mount("/static", StaticFiles(directory="static"), name="static")

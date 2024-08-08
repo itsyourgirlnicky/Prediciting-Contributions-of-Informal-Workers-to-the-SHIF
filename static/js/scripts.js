@@ -1,14 +1,18 @@
 $(document).ready(function() {
-    $('#contributionForm').on('submit', function(e) {
-        e.preventDefault();
+    $('#contributionForm').on('submit', function(event) {
+        event.preventDefault();
+        const amountPaid = $('#amountPaid').val();
+        const region = $('#region').val();
+        const occupation = $('#occupation').val();
 
-        var amountPaid = $('#amountPaid').val();
-        var region = $('#region').val();
-        var occupation = $('#occupation').val();
+        if (region === "" || occupation === "") {
+            alert("Please select both region and occupation.");
+            return;
+        }
 
         $.ajax({
             url: '/predict',
-            method: 'POST',
+            type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({
                 amountPaid: parseFloat(amountPaid),
@@ -16,21 +20,10 @@ $(document).ready(function() {
                 occupation: occupation
             }),
             success: function(response) {
-                var resultHtml = `
-                    <div class="card">
-                        <div class="card-header">
-                            Predicted Contribution Amount
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Your Predicted Contribution</h5>
-                            <p class="card-text">Based on your inputs, the predicted contribution amount is: <strong>Ksh ${response.predicted_contribution.toFixed(2)}</strong></p>
-                        </div>
-                    </div>
-                `;
-                $('#result').html(resultHtml);
+                $('#result').html(`<p>Predicted SHIF Contribution: ${response.predicted_contribution}</p>`);
             },
             error: function(error) {
-                $('#result').html('<div class="alert alert-danger">An error occurred while predicting the contribution amount.</div>');
+                $('#result').html(`<p>Error: ${error.responseJSON.detail}</p>`);
             }
         });
     });
