@@ -22,7 +22,7 @@ In 2023, the Kenyan government enacted the Social Health Insurance Act, aiming t
 ![Kenya-xs](https://github.com/user-attachments/assets/fec89a87-d9bf-4781-ba55-5c4867674455)
 
 
-## Business Understanding
+## Business Understanding.
 The primary goal of this project is to develop a model that predicts the contributions of informal sector workers to the Social Health Insurance Fund (SHIF). This involves analyzing household demographics, location, income group, and type of work to understand their impact on income predictions.
 
 ## Data Understanding
