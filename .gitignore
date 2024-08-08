@@ -6,3 +6,16 @@ shif-prediction-chatbot-59fe29b269e9.json
 *.tmp
 .DS_Store
 node_modules/
+
+# Ignore virtual environment directories
+venv/
+env/
+
+# Ignore IDE/editor specific files
+.vscode/
+.idea/
+*.swp
+
+# Ignore OS generated files
+Thumbs.db
+
