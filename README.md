@@ -43,7 +43,7 @@ How can we accurately predict the SHIF contributions of informal sector workers 
 ## Metric of Success
 - Accuracy and F1 Score metrics will be used to evaluate the balance between precision and recall in classifying low-income households within the informal sector, ensuring targeted social programs are appropriately directed.
 
-## Data Preparation and Cleaning
+## Data Preparation and cleaning
 Data preparation involves handling missing values, normalizing features, and encoding categorical variables to ensure the dataset is suitable for model training. Key steps include:
 - Dropping irrelevant columns.
 - Imputing missing values.
